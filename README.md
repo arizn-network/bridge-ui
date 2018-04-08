@@ -1,5 +1,5 @@
 ## Arizn Bridge UI app
-A Cross-chain bridge provides interoperability between any Ethereum-compatible network such as Ethereum Foundation, Ethereum Classic, Ubiq, Expanse, Arizn Network, Rootstock, and many others.<br/>
+A Cross-chain bridge provides interoperability between any Ethereum-compatible network such as Ethereum Foundation, Ethereum Classic, Ubiq, Expanse, POA Network, Arizn Network, Rootstock, and many others.<br/>
 This Bridge-UI is an app which runs on multiple computers with two contracts on both sides of the bridge. As an example, on the left side of the bridge is Arizn Network. The app listens to events from the Home Bridge contract. On the right side of the bridge is Ethereum Foundation. In congruence with the communicating smart contracts and the Bridge-UI Dapp, ERC20 tokens are created corresponding to these events mapped 1:1.<br/>
 The contract on the right side of the bridge accepts transactions signed by authorities of the Arizn consensus. A subset of validators on Arizn Network runs the bridge software. If you trust authorities of the Arizn Network, then you inherit this trust into the bridge, i.e. the assets are transferred in a trustless manner.<br/>
 

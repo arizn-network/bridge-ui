@@ -29,11 +29,11 @@ let getWeb3 = () => {
               console.log('This is Kovan', netId)
               break;
             case "99":
-              netIdName = 'POA Core'
+              netIdName = 'ARIZN Core'
               console.log('This is Core', netId)
               break;
             case "77":
-              netIdName = 'POA Sokol'
+              netIdName = 'ARIZN Sokol'
               console.log('This is Sokol', netId)
               break;
             default:

@@ -1,6 +1,6 @@
 import React from 'react';
 import { inject, observer } from "mobx-react";
-import poa from '../assets/images/poa@2x.png';
+import ARIZN from '../assets/images/arizn@2x.png';
 import eth from '../assets/images/eth@2x.png';
 import { CSSTransition } from 'react-transition-group'
 import Web3Utils from 'web3-utils'
@@ -29,7 +29,7 @@ export class Bridge extends React.Component {
     this.txStore = props.RootStore.txStore;
     this.errorsStore = props.RootStore.errorsStore;
     this.gasPriceStore = props.RootStore.gasPriceStore;
-    this.homeCurrency = 'POA'
+    this.homeCurrency = 'ARIZN'
     this.onSwitch = this.onSwitch.bind(this)
     this.state = {
       reverse: false

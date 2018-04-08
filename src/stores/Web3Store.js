@@ -69,10 +69,10 @@ class Web3Store {
           currentNet.name = 'Kovan'
           break;
         case "99":
-          currentNet.name = 'POA Core'
+          currentNet.name = 'ARIZN Core'
           break;
         case "77":
-          currentNet.name = 'POA Sokol'
+          currentNet.name = 'ARIZN Sokol'
           break;
         default:
           currentNet.name = 'Unknown'

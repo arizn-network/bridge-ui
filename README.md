@@ -1,23 +1,22 @@
-![Demo](demo.gif)
-## POA Bridge UI app
-A Cross-chain bridge provides interoperability between any Ethereum-compatible network such as Ethereum Foundation, Ethereum Classic, Ubiq, Expanse, POA Network, Rootstock, and many others.<br/>
-This Bridge-UI is an app which runs on multiple computers with two contracts on both sides of the bridge. As an example, on the left side of the bridge is POA Network. The app listens to events from the Home Bridge contract. On the right side of the bridge is Ethereum Foundation. In congruence with the communicating smart contracts and the Bridge-UI Dapp, ERC20 tokens are created corresponding to these events mapped 1:1.<br/>
-The contract on the right side of the bridge accepts transactions signed by authorities of the POA consensus. A subset of validators on POA Network runs the bridge software. If you trust authorities of the POA Network, then you inherit this trust into the bridge, i.e. the assets are transferred in a trustless manner.<br/>
-[Read more](https://medium.com/poa-network/cross-chain-bridges-paving-the-way-to-internet-of-blockchains-422ac94bc2e5)
+﻿![Demo](demo.gif)
+## Arizn Bridge UI app
+A Cross-chain bridge provides interoperability between any Ethereum-compatible network such as Ethereum Foundation, Ethereum Classic, Ubiq, Expanse, Arizn Network, Rootstock, and many others.<br/>
+This Bridge-UI is an app which runs on multiple computers with two contracts on both sides of the bridge. As an example, on the left side of the bridge is Arizn Network. The app listens to events from the Home Bridge contract. On the right side of the bridge is Ethereum Foundation. In congruence with the communicating smart contracts and the Bridge-UI Dapp, ERC20 tokens are created corresponding to these events mapped 1:1.<br/>
+The contract on the right side of the bridge accepts transactions signed by authorities of the Arizn consensus. A subset of validators on Arizn Network runs the bridge software. If you trust authorities of the Arizn Network, then you inherit this trust into the bridge, i.e. the assets are transferred in a trustless manner.<br/>
 
 
 Using the current implementation of Bridges-UI, a user can tokenize their native coin of an EVM (Ethereum Virtual Machine) network into ERC20 representation token on another EVM compatible network. 
 Security considerations:
 In order to provide better decentralization of the bridges, a user can increase the number of required signatures and expand the number of validators. To increase security, block confirmations should be increased to protect against double spending attacks.
-POA smart contracts allows maintainers of the bridges to 
+Arizn smart contracts allows maintainers of the bridges to 
 - Upgrade smart contracts by fixing potential security vulnerabilities in a smart contract with multisig contract
 - Add validators
 - Remove validators
 - Set required number of signatures from validators
-- Set daily limit of deposits on Home Network(left side) for native coin deposits(POA)
-- Set max limit per transaction for deposits on Home Network(left side) for native coin deposits(POA)
-- Set daily limit of withdrawals on Foreign Network(right side) for ERC20/ERC677 token transfers(POA20)
-- Set max limit per transaction for deposits on Foreign Network(right side) for ERC20/ERC677 token transfers(POA20)
+- Set daily limit of deposits on Home Network(left side) for native coin deposits(Arizn)
+- Set max limit per transaction for deposits on Home Network(left side) for native coin deposits(Arizn)
+- Set daily limit of withdrawals on Foreign Network(right side) for ERC20/ERC677 token transfers(Arizn20)
+- Set max limit per transaction for deposits on Foreign Network(right side) for ERC20/ERC677 token transfers(Arizn20)
 - Storing Home Deposits in Home Bridge contract
 - Minting on Deposits of ERC20 compatible token on Foreign Network by validators
 - Burning on Withdrawals of ERC20 compatible token on Foreign Network by validators
@@ -34,21 +33,21 @@ Bridge UI  features:
 Bridge UI allows users to explore all cross chain transactions that are happening. Users can submit a transaction on both sides of the networks. 
 
 #### From Home to Foreign Network transaction:
-To tokenize native POA coins a user must complete the following:
+To tokenize native Arizn coins a user must complete the following:
 - Specify the amount
 - Click the arrow -> send button
 - Confirm transaction via MetaMask
 - The address that you use to send from, the same address will be used to receive the token on a Foreign chain
-The amount sent must be within the daily limits provided by the contracts. When the transaction is validated, the user should see the Deposit event on the Home Network (left side - POA Network). After some time, Validators submit signatures emitting SignedForDeposit event to the Foreign Network. Once the required number of signatures is reached, a Deposit event is emitted on the Foreign Network. Hence, an equivalent amount of ERC20 tokens are minted on the Foreign Network with the corresponding depost address. 
+The amount sent must be within the daily limits provided by the contracts. When the transaction is validated, the user should see the Deposit event on the Home Network (left side - Arizn Network). After some time, Validators submit signatures emitting SignedForDeposit event to the Foreign Network. Once the required number of signatures is reached, a Deposit event is emitted on the Foreign Network. Hence, an equivalent amount of ERC20 tokens are minted on the Foreign Network with the corresponding depost address. 
 
 #### From Foreign to Home Network transaction:
-To burn and send back to Home Network (ERC20 to POA20):
+To burn and send back to Home Network (ERC20 to Arizn20):
 - Specify an Amount
 - Click the switch button and click the <- arrow button to send
 - Confirm transaction on MetaMask
 - The address that you use to send from, the same address will be used to receive the coin on a Home chain
 
-The amount sent must be within the daily limits provided by the contracts. When the transaction is validated, the user should expect to see a Withdrawal Event on the Foreign Network (right-side - Ethereum Foundation). After some time, Validators submit signatures emitting SignedForWithdrawal event to the Foreign Network. Once the required number of signatures is reached, CollectedSignatures event is emitted on the Foreign Network. The ERC20 tokens are burned on the Foreign Network. This process generates a signed message which Validators submit on the Home Network. The user automatically receives their Native POA Coin.
+The amount sent must be within the daily limits provided by the contracts. When the transaction is validated, the user should expect to see a Withdrawal Event on the Foreign Network (right-side - Ethereum Foundation). After some time, Validators submit signatures emitting SignedForWithdrawal event to the Foreign Network. Once the required number of signatures is reached, CollectedSignatures event is emitted on the Foreign Network. The ERC20 tokens are burned on the Foreign Network. This process generates a signed message which Validators submit on the Home Network. The user automatically receives their Native Arizn Coin.
 
 # Responsibilities and roles of the bridge:
 - Administrator Role(representation of a multisig contract):
@@ -62,12 +61,12 @@ The amount sent must be within the daily limits provided by the contracts. When 
   - listen for Deposit events on Home bridge to mint erc20 token on Foreign bridge
   - listen for Withdraw events on Foreign bridge to unlock funds on Home Bridge
 - User role:
-  - sends POA coins to Home bridge in order to receive ERC20 token on Foreign Bridge using the same address to send/receive
-  - sends ERC20 POA20 token on Foreign Bridge in order to receive POA coins on Home Bridge using the same address to send/receive
+  - sends Arizn coins to Home bridge in order to receive ERC20 token on Foreign Bridge using the same address to send/receive
+  - sends ERC20 Arizn20 token on Foreign Bridge in order to receive Arizn coins on Home Bridge using the same address to send/receive
 
 ## Dependencies
 
-- [poa-bridge-contracts](https://github.com/poanetwork/poa-parity-bridge-contracts/)
+- [Arizn-bridge-contracts](https://github.com/arizn-network/Arizn-parity-bridge-contracts/)
 - [parity node 1.9.3](https://www.parity.io/) for Home Network 
 - [parity node 1.9.3](https://www.parity.io/) for Foreign Network
 - [node.js](https://nodejs.org/en/download/)
@@ -89,24 +88,24 @@ Folder structure:
     ├── parity-bridge
     ├── kovan-node
     ├── sokol-node
-    └── poa-parity-bridge-contracts
+    └── Arizn-parity-bridge-contracts
 ```
 1. Install parity (Current setup was tested against parity 1.9.3)
 2. Setup Home Network node. In this example, we will use `sokol-node` folder
 
-Example: POA-Sokol:
-  * Download Sokol spec.json file from [here](https://github.com/poanetwork/poa-chain-spec/blob/sokol/spec.json)
-  * Download Sokol bootnodes.txt file from [here](https://github.com/poanetwork/poa-chain-spec/blob/sokol/bootnodes.txt)
+Example: Arizn-Sokol:
+  * Download Sokol spec.json file from [here](https://github.com/arizn-network/arizn-chain-spec/blob/sokol/spec.json)
+  * Download Sokol bootnodes.txt file from [here](https://github.com/arizn-network/arizn-chain-spec/blob/sokol/bootnodes.txt)
   * Create sokol.toml file
 ```bash
 # Sokol
 [parity]
-chain = "spec.json" # For Sokol https://github.com/poanetwork/poa-chain-spec/blob/sokol/spec.json
+chain = "spec.json" # For Sokol https://github.com/arizn-network/arizn-chain-spec/blob/sokol/spec.json
 base_path = "sokol-datadir" #folder where the blockchain will be synced and keys stored
 [network]
 port = 30305
 discovery=true
-reserved_peers = "./bootnodes.txt" #bootnodes file For Sokol: https://github.com/poanetwork/poa-chain-spec/blob/sokol/bootnodes.txt
+reserved_peers = "./bootnodes.txt" #bootnodes file For Sokol: https://github.com/arizn-network/arizn-chain-spec/blob/sokol/bootnodes.txt
 [rpc]
 cors = ["all"]
 interface = "all"
@@ -135,9 +134,9 @@ Run your Home(sokol) node
 parity --config sokol.toml --nat=none --no-ui
 ```
 
-3. Get POA Bridge contracts:
-  * `git clone https://github.com/poanetwork/poa-parity-bridge-contracts.git`
-  * `cd poa-parity-bridge-contracts && npm install`
+3. Get Arizn Bridge contracts:
+  * `git clone https://github.com/arizn-network/Arizn-parity-bridge-contracts.git`
+  * `cd Arizn-parity-bridge-contracts && npm install`
   * open `truffle.js` file and make sure you add your home network config:
 ```js
 module.exports = {
@@ -180,9 +179,9 @@ all is done
   Owner: 0xb8988b690910913c97a090c3a6f80fad8b3a4683
   Foreign Bridge: 0xdceabcfa4ffa7765913cd002c67f123127e2f762
   Home Bridge: 0x030caae2549fc2584879c8713d3e98d1ab615235
-  POA20: 0x3ac82ca0ab3d78e131cc563c72716d11fc3795f8
+  Arizn20: 0x3ac82ca0ab3d78e131cc563c72716d11fc3795f8
 ```
-  * Copy only `Home Bridge:` line and save it somewhere else. You will also need block number of contract deployment, use https://sokol-explorer.poa.network to find it by contract address
+  * Copy only `Home Bridge:` line and save it somewhere else. You will also need block number of contract deployment, use https://sokol-explorer.arizn.network to find it by contract address
 
 
 4. Setup Foreign Network node.
@@ -224,7 +223,7 @@ parity --config kovan.toml --nat=none --no-ui
 ```
 * Please make sure you are fully synced Foreign(kovan) network chain by this step
 * Get free Kovan Coins from the [gitter channel](https://gitter.im/kovan-testnet/faucet) or [Iracus faucet](https://github.com/kovan-testnet/faucet)
-* Go back to your `poa-parity-bridge-contracts` folder where you previosly used for Home contracts deployment
+* Go back to your `Arizn-parity-bridge-contracts` folder where you previosly used for Home contracts deployment
 * open `truffle.js` file and make sure you add your foreign network config:
 ```js
 module.exports = {
@@ -263,7 +262,7 @@ all is done
   Owner: 0xb8988b690910913c97a090c3a6f80fad8b3a4683
   Foreign Bridge: 0xd586e9f2da9f496bfc28c9092166ea52c8024a5d
   Home Bridge: 0x6263f1fbff2dc1e8ed5e52168e9760a3613b1877
-  POA20: 0x064cafec541a4faf9b7c4ffe4257d50cf0775df5
+  Arizn20: 0x064cafec541a4faf9b7c4ffe4257d50cf0775df5
 ```
   * Copy only `Foreign Bridge: ...` line and save it somewhere else. You will also need block number of contract deployment, use https://kovan.etherscan.io to find it by contract address
 
@@ -273,7 +272,7 @@ all is done
 
 * Install `solc` and add it to `$PATH`: [installation instructions.](https://solidity.readthedocs.io/en/develop/installing-solidity.html)
 
-* `git clone https://github.com/poanetwork/parity-bridge.git`
+* `git clone https://github.com/arizn-network/parity-bridge.git`
 * `cd parity-bridge`
 * Run:
 
@@ -283,11 +282,11 @@ cargo build -p bridge-cli --release
 6. Install [jq](https://stedolan.github.io/jq/)
 7. Create `HomeBridge_bytecode.bin` with the following command:
 ```bash
-cat sokol-kovan-bridge/poa-parity-bridge-contracts/build/contracts/HomeBridge.json | jq '.bytecode' -r | cut -c 3- > HomeBridge_bytecode.bin
+cat sokol-kovan-bridge/Arizn-parity-bridge-contracts/build/contracts/HomeBridge.json | jq '.bytecode' -r | cut -c 3- > HomeBridge_bytecode.bin
 ```
 8. Create `ForeignBridge_bytecode.bin` with the following command:
 ```bash
-cat sokol-kovan-bridge/poa-parity-bridge-contracts/build/contracts/ForeignBridge.json | jq '.bytecode' -r | cut -c 3- > ForeignBridge_bytecode.bin
+cat sokol-kovan-bridge/Arizn-parity-bridge-contracts/build/contracts/ForeignBridge.json | jq '.bytecode' -r | cut -c 3- > ForeignBridge_bytecode.bin
 ```
 9. Create `config.toml` file
 ```yaml
@@ -347,7 +346,7 @@ checked_withdraw_confirm = 6342830 # last checked withdraw events on Foreign net
     ├── parity-bridge
     ├── kovan-node
     ├── sokol-node
-    └── poa-parity-bridge-contracts
+    └── Arizn-parity-bridge-contracts
 ```
 12. Run the bridge app:
 ```
@@ -383,13 +382,13 @@ INFO:bridge::bridge::withdraw_confirm: waiting for new withdraws that should get
 
 ## Installation of the UI app
 
-1. `git clone https://github.com/poanetwork/bridge-ui.git`
+1. `git clone https://github.com/arizn-network/bridge-ui.git`
 2. `cd bridge-ui`
 3. `npm install`
 4. Please create .env file [.env.example](.env.example)
 ```bash
-REACT_APP_HOME_BRIDGE_ADDRESS=0x030caae2549fc2584879c8713d3e98d1ab615235
-REACT_APP_FOREIGN_BRIDGE_ADDRESS=0xd586e9f2da9f496bfc28c9092166ea52c8024a5d
+REACT_APP_HOME_BRIDGE_ADDRESS=0//TBA
+REACT_APP_FOREIGN_BRIDGE_ADDRESS=0//TBA
 REACT_APP_FOREGIGN_WEB_SOCKETS_PARITY_URL=ws://localhost:8541
 REACT_APP_HOME_WEB_SOCKETS_PARITY_URL=ws://localhost:8546
 ```

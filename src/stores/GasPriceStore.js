@@ -10,7 +10,7 @@ class GasPriceStore {
   }
 
   async getGasPrices(){
-    this.gasPricePromise = fetch('https://gasprice.poa.network/').then((response) => {
+    this.gasPricePromise = fetch('https://gasprice.arizn.network/').then((response) => {
       return response.json()
     }).then((data) => {
       console.log(data)

@@ -13,10 +13,10 @@ Arizn smart contracts allows maintainers of the bridges to
 - Add validators
 - Remove validators
 - Set required number of signatures from validators
-- Set daily limit of deposits on Home Network(left side) for native coin deposits(Arizn)
-- Set max limit per transaction for deposits on Home Network(left side) for native coin deposits(Arizn)
-- Set daily limit of withdrawals on Foreign Network(right side) for ERC20/ERC677 token transfers(Arizn20)
-- Set max limit per transaction for deposits on Foreign Network(right side) for ERC20/ERC677 token transfers(Arizn20)
+- Set daily limit of deposits on Home Network(left side) for native coin deposits(arizn)
+- Set max limit per transaction for deposits on Home Network(left side) for native coin deposits(arizn)
+- Set daily limit of withdrawals on Foreign Network(right side) for ERC20/ERC677 token transfers(arizn20)
+- Set max limit per transaction for deposits on Foreign Network(right side) for ERC20/ERC677 token transfers(arizn20)
 - Storing Home Deposits in Home Bridge contract
 - Minting on Deposits of ERC20 compatible token on Foreign Network by validators
 - Burning on Withdrawals of ERC20 compatible token on Foreign Network by validators
@@ -41,7 +41,7 @@ To tokenize native Arizn coins a user must complete the following:
 The amount sent must be within the daily limits provided by the contracts. When the transaction is validated, the user should see the Deposit event on the Home Network (left side - Arizn Network). After some time, Validators submit signatures emitting SignedForDeposit event to the Foreign Network. Once the required number of signatures is reached, a Deposit event is emitted on the Foreign Network. Hence, an equivalent amount of ERC20 tokens are minted on the Foreign Network with the corresponding depost address. 
 
 #### From Foreign to Home Network transaction:
-To burn and send back to Home Network (ERC20 to Arizn20):
+To burn and send back to Home Network (ERC20 to arizn20):
 - Specify an Amount
 - Click the switch button and click the <- arrow button to send
 - Confirm transaction on MetaMask
@@ -66,7 +66,7 @@ The amount sent must be within the daily limits provided by the contracts. When 
 
 ## Dependencies
 
-- [Arizn-bridge-contracts](https://github.com/arizn-network/Arizn-parity-bridge-contracts/)
+- [Arizn-bridge-contracts](https://github.com/arizn-network/arizn-parity-bridge-contracts/)
 - [parity node 1.9.3](https://www.parity.io/) for Home Network 
 - [parity node 1.9.3](https://www.parity.io/) for Foreign Network
 - [node.js](https://nodejs.org/en/download/)
@@ -135,8 +135,8 @@ parity --config sokol.toml --nat=none --no-ui
 ```
 
 3. Get Arizn Bridge contracts:
-  * `git clone https://github.com/arizn-network/Arizn-parity-bridge-contracts.git`
-  * `cd Arizn-parity-bridge-contracts && npm install`
+  * `git clone https://github.com/arizn-network/arizn-parity-bridge-contracts.git`
+  * `cd arizn-parity-bridge-contracts && npm install`
   * open `truffle.js` file and make sure you add your home network config:
 ```js
 module.exports = {
